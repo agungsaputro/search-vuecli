@@ -2,6 +2,13 @@
   <div id="app">
     <Header/>
     <Search v-model="searchTerm"/>
+    <div class="container mx-auto">
+      <div class="flex flex-wrap">
+        <div class="md:w-1/3 p-4" v-for="galery in photoList" :key="galery.id">
+          <Photocard v-bind:title="galery.title" v-bind:imageurl="galery.thumbnailUrl"/>
+        </div>
+      </div>
+    </div>
     <ResultGrid/>
   </div>
 </template>
@@ -11,18 +18,23 @@ import Header from './components/Header.vue'
 import Search from './components/Search.vue'
 import ResultGrid from './components/ResultGrid.vue'
 import {photos as photosData} from './data'
+import Photocard from './components/Photocard.vue'
+import dataPhoto from './dummy/photo.json'
 
 export default {
   name: 'App',
   components: {
     Header,
     Search,
-    ResultGrid
+    ResultGrid,
+    Photocard
   },
   data:() =>({
     searchTerm: '',
     tech:'',
     photos:[],
+    photoList: dataPhoto
+
   }),
   methods:{
     filterPhoto(){

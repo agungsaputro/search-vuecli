@@ -2,7 +2,7 @@
     <span>{{ text }}</span>
 </template>
 <script>
-import { technologies } from '../data'
+import { technologies } from '../data.js'
 export default {
     name: 'Label',
   props: {

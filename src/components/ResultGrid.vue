@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Results from './Results'
+import Results from './Results.vue'
 export default {
     name: 'ResultGrid',
     components: {Results},

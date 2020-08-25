@@ -4,10 +4,10 @@
             <div>
                 <div class="grid gap-4 grid-cols-3 grid-rows-3" >
                     <div>
-                        <a v-bind:href="post.url" target="_blank">
-                                <img class="w-full p-4" v-bind:src="post.thumbnailUrl">
+                        <a v-bind:href="url" target="_blank">
+                                <img class="w-full p-4" v-bind:src="thumbnailUrl">
                                 <div class="px-auto text-center py-4">
-                                    <div class="text-base mb-2">{{post.title}}</div>
+                                    <div class="text-base mb-2">{{title}}</div>
                                 </div>
                                 <p>
                                     <Label v-for="tech in post.tech" :tech="tech" :key="tech" />
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import Label from './Label'
+import Label from './Label.vue'
 
 export default {
     name: 'Results',
-    props: ['post'],
+    props: ['title', 'url', 'thumbnailUrl', 'id'],
     components: {Label}
 }
 </script>
